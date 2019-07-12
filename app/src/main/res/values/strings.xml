@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">轻听桌面控件</string>
+    <string name="channel_name">轻听</string>
+    <string name="channel_description">轻听桌面控件的后台服务</string>
+    <string name="qingting_logo">Qingting Logo</string>
+    <string name="qingting">轻听</string>
+    <string name="listener">Qingting is the best…</string>
+</resources>

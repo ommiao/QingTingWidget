@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.qingtingwidgetdemo">
+
+    <permission android:name="cn.ommiao.permission.MUSIC_PLAYING_CHANGED"
+        android:protectionLevel="signature"/>
+
+    <uses-permission android:name="cn.ommiao.permission.MUSIC_PLAYING_CHANGED"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <service
+            android:name=".MusicService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="cn.ommiao.permission.MUSIC_PLAYING_CHANGED">
+            <intent-filter>
+                <action android:name="cn.ommiao.action.MUSIC_PLAYING_CHANGED" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".PlayerWidget"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/player_widget_info" />
+        </receiver>
+    </application>
+
+</manifest>

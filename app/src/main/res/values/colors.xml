@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="widget_bg">@android:color/white</color>
+    <color name="icon_color">#aaaaaa</color>
+    <color name="title_color">#8a8a8a</color>
+    <color name="lyric_color">#8a8a8a</color>
+</resources>
