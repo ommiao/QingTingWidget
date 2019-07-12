@@ -32,9 +32,8 @@ public class PlayerWidget extends AppWidgetProvider {
                 song = "未知歌曲";
             }
             if(singer == null){
-                singer = "位置歌手";
+                singer = "未知歌手";
             }
-//            String album = intent.getStringExtra(MusicService.ALBUM);
             String lyric = intent.getStringExtra(MusicService.LYRIC);
 
             int songLength = song.length();
@@ -45,7 +44,6 @@ public class PlayerWidget extends AppWidgetProvider {
             SpannableString songAndSingerSpan = new SpannableString(songAndSinger);
             songAndSingerSpan.setSpan(new AbsoluteSizeSpan(context.getResources().getDimensionPixelSize(R.dimen.singer_size), false), songLength + sepLength, songAndSingerLength, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             views.setTextViewText(R.id.tv_title, songAndSingerSpan);
-//            views.setTextViewText(R.id.tv_album, album);
             views.setTextViewText(R.id.tv_lyric, lyric);
         }
         // Instruct the widget manager to update the widget

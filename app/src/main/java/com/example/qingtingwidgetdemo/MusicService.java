@@ -16,6 +16,8 @@ public class MusicService extends Service {
     public static final String ARTIST = "artist";
     public static final String TITLE = "title";
     public static final String LYRIC = "lyric";
+    public static final String NEXT_LYRIC = "nextLyric";
+    public static final String PREVIOUS_LYRIC = "previousLyric";
     public static final String ALBUM = "album";
     public static final String TRACK = "track";
     public static final String LIST_SIZE = "ListSize";
@@ -45,6 +47,8 @@ public class MusicService extends Service {
         intent.putExtra(ID, originIntent.getLongExtra(ID, 0));
         intent.putExtra(TITLE, originIntent.getStringExtra(TITLE));
         intent.putExtra(LYRIC, originIntent.getStringExtra(LYRIC));
+        intent.putExtra(NEXT_LYRIC, originIntent.getStringExtra(NEXT_LYRIC));
+        intent.putExtra(PREVIOUS_LYRIC, originIntent.getStringExtra(PREVIOUS_LYRIC));
         intent.putExtra(ARTIST, originIntent.getStringExtra(ARTIST));
         intent.putExtra(ALBUM, originIntent.getStringExtra(ALBUM));
         intent.putExtra(TRACK, originIntent.getStringExtra(TRACK));

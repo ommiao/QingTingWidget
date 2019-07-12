@@ -5,4 +5,5 @@
     <string name="qingting_logo">Qingting Logo</string>
     <string name="qingting">轻听</string>
     <string name="listener">Qingting is the best…</string>
+    <string name="no_lyric_placeholder"> </string>
 </resources>
