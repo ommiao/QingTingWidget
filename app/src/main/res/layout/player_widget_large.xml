@@ -123,7 +123,7 @@
         android:layout_width="@dimen/album_size_large"
         android:layout_height="@dimen/album_size_large"
         android:layout_gravity="center_horizontal"
-        android:padding="10dp"
+        android:padding="@dimen/album_large_padding"
         android:background="@drawable/album_bg_large"
         android:src="@mipmap/album_placeholder"/>
 

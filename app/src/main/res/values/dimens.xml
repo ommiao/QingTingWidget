@@ -12,4 +12,5 @@
     <dimen name="lyric_txt_size_normal">13sp</dimen>
     <dimen name="lyric_txt_size_large">14sp</dimen>
     <dimen name="widget_padding_large">55dp</dimen>
+    <dimen name="album_large_padding">8dp</dimen>
 </resources>
