@@ -24,6 +24,7 @@ public class MusicService extends Service {
     public static final String DURATION = "duration";
     public static final String POSITION = "position";
     public static final String SONG_CHANGED = "songChanged";
+    public static final String FIRST_SEND = "firstSend";
 
     private MusicMetaChangedReceiver musicMetaChangedReceiver;
     private Intent lastIntent;
@@ -57,6 +58,7 @@ public class MusicService extends Service {
         intent.putExtra(LIST_SIZE, originIntent.getIntExtra(LIST_SIZE, 1));
         intent.putExtra(DURATION, originIntent.getLongExtra(DURATION, 0));
         intent.putExtra(POSITION, originIntent.getLongExtra(POSITION, 0));
+        intent.putExtra(FIRST_SEND, originIntent.getBooleanExtra(FIRST_SEND, false));
         if(isIntentNoChanged(intent)){
             lastIntent = intent;
             return;

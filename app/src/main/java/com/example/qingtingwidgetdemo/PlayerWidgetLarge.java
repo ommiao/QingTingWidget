@@ -31,9 +31,10 @@ public class PlayerWidgetLarge extends AppWidgetProvider {
 
         if(intent != null){
 
-            if(intent.getBooleanExtra(MusicService.SONG_CHANGED, false)){
+            if(intent.getBooleanExtra(MusicService.SONG_CHANGED, false)
+                    || intent.getBooleanExtra(MusicService.FIRST_SEND, false)){
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(600);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
