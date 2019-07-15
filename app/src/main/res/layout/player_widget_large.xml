@@ -125,6 +125,6 @@
         android:layout_gravity="center_horizontal"
         android:padding="10dp"
         android:background="@drawable/album_bg_large"
-        android:src="@drawable/ic_music"/>
+        android:src="@mipmap/album_placeholder"/>
 
 </FrameLayout>

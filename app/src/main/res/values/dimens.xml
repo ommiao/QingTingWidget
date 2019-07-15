@@ -4,8 +4,8 @@
     <dimen name="lyric_size">14sp</dimen>
     <dimen name="title_size">15sp</dimen>
     <dimen name="singer_size">12sp</dimen>
-    <dimen name="album_size_large">100dp</dimen>
-    <dimen name="top_song_info">50dp</dimen>
+    <dimen name="album_size_large">150dp</dimen>
+    <dimen name="top_song_info">75dp</dimen>
     <dimen name="album_txt_size">13sp</dimen>
     <dimen name="album_txt_size_small">12sp</dimen>
     <dimen name="lyric_margin_vertical">15dp</dimen>

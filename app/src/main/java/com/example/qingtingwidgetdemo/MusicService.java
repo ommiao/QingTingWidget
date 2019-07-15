@@ -23,8 +23,10 @@ public class MusicService extends Service {
     public static final String LIST_SIZE = "ListSize";
     public static final String DURATION = "duration";
     public static final String POSITION = "position";
+    public static final String SONG_CHANGED = "songChanged";
 
     private MusicMetaChangedReceiver musicMetaChangedReceiver;
+    private Intent lastIntent;
 
     @Override
     public void onCreate() {
@@ -55,7 +57,37 @@ public class MusicService extends Service {
         intent.putExtra(LIST_SIZE, originIntent.getIntExtra(LIST_SIZE, 1));
         intent.putExtra(DURATION, originIntent.getLongExtra(DURATION, 0));
         intent.putExtra(POSITION, originIntent.getLongExtra(POSITION, 0));
+        if(isIntentNoChanged(intent)){
+            lastIntent = intent;
+            return;
+        }
+        if(isSongChanged(intent)){
+            intent.putExtra(SONG_CHANGED, true);
+            intent.putExtra(PREVIOUS_LYRIC, getString(R.string.no_lyric_placeholder));
+            intent.putExtra(NEXT_LYRIC, getString(R.string.no_lyric_placeholder));
+        }
         sendBroadcast(intent);
+        lastIntent = intent;
+    }
+
+    private boolean isIntentNoChanged(Intent intent) {
+        if(lastIntent == null){
+            return false;
+        }
+        return intent.getLongExtra(ID, 0) == lastIntent.getLongExtra(ID, 0)
+                && intent.getStringExtra(TITLE).equals(lastIntent.getStringExtra(TITLE))
+                && intent.getStringExtra(ARTIST).equals(lastIntent.getStringExtra(ARTIST))
+                && intent.getStringExtra(PREVIOUS_LYRIC).equals(lastIntent.getStringExtra(PREVIOUS_LYRIC))
+                && intent.getStringExtra(LYRIC).equals(lastIntent.getStringExtra(LYRIC))
+                && intent.getStringExtra(NEXT_LYRIC).equals(lastIntent.getStringExtra(NEXT_LYRIC));
+    }
+
+    private boolean isSongChanged(Intent intent){
+        if(lastIntent == null){
+            return true;
+        } else {
+            return intent.getLongExtra(ID, 0) != lastIntent.getLongExtra(ID, 0);
+        }
     }
 
     @Override

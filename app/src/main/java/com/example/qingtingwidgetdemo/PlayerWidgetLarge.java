@@ -20,8 +20,6 @@ public class PlayerWidgetLarge extends AppWidgetProvider {
     public static final String NO_LYRIC = "No lyric to show...";
     public static final String NO_NEXT = "No next lyric to show...";
 
-    private static long songId = 0;
-
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                  int appWidgetId, Intent intent) {
 
@@ -33,12 +31,17 @@ public class PlayerWidgetLarge extends AppWidgetProvider {
 
         if(intent != null){
 
-            long curId = intent.getLongExtra(MusicService.ID, 0);
-            if(curId == 0 || curId != songId){
-                views.setTextViewText(R.id.tv_lyric_previous, context.getString(R.string.no_lyric_placeholder));
-                views.setTextViewText(R.id.tv_lyric_next, context.getString(R.string.no_lyric_placeholder));
+            if(intent.getBooleanExtra(MusicService.SONG_CHANGED, false)){
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-            songId = curId;
+            if(Util.getRoundBitmap() != null){
+                views.setImageViewBitmap(R.id.iv_album, Util.getRoundBitmap());
+            }
+
             String song = intent.getStringExtra(MusicService.TITLE);
             String singer = intent.getStringExtra(MusicService.ARTIST);
             String album = intent.getStringExtra(MusicService.ALBUM);
